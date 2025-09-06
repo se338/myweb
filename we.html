@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love</title>
+    <style>
+      /* Example: Add a background color to header */
+      .triangle {
+        width: 80px;
+        height: 130px;
+        background-color: aquamarine;
+        box-shadow: 10px 5px 10px gray;
+        display: flex;
+      }
+      .triangle1 {
+        width: 200px;
+        height: 135px;
+        background-color: aquamarine;
+        box-shadow: 10px 5px 10px gray;
+        display: flex;
+      }
+      header {
+        color: pink;
+        background-color: white;
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: -10px;
+      }
+      .heart {
+        width: 24px;
+        height: 22px;
+        position: relative;
+        display: inline-block;
+      }
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 12px;
+        height: 20px;
+        background: red;
+        border-radius: 12px 12px 0 0;
+      }
+      .heart::before {
+        left: 12px;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+      }
+      .heart::after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="text-align: center">
+      <header>Love in ours</header>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 16px;
+          margin-top: 8px;
+        "
+      >
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+      </div>
+    </div>
+
+    <div
+      style="
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        margin-top: 8px;
+      "
+    >
+      <div
+        class="triangle"
+        style="
+          position: relative;
+          width: 90px;
+          height: 160px;
+          background-color: aquamarine;
+          box-shadow: 10px 5px 10px gray;
+          overflow: hidden;
+        "
+      >
+        <img
+          src="https://github.com/se338/myweb/raw/main/birthday.jpg"
+          alt="示例图片"
+          style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            margin: 0;
+          "
+        />
+      </div>
+      <div class="triangle1">
+        <img
+          src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145805.jpg"
+          alt="示例图片"
+          style="
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 0%;
+            margin-top: 0;
+            margin-bottom: 0;
+          "
+        />
+      </div>
+    </div>
+  </body>
+</html>

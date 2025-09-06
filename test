@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .element {
+      border: solid blueviolet;
+      border-radius: 10px 20px 40px 100px;
+    }
+    .square {
+      width: 300px;
+      height: 300px;
+      background-color: aquamarine;
+      box-shadow: 10px 5px 10px gray;
+    }
+  </style>
+  <body>
+    <div class="element">
+      <p>give me a quite room please</p>
+    </div>
+    <div class="square"></div>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>XY</title>
     <script>
       function addtimestamp() {
         var now = new Date();
@@ -14,7 +14,7 @@
     </script>
   </head>
   <body>
-    <div style="color: black">
+    <div style="color: black;text-align: center">
       <h2>
         你好呀，我是小导游XY，你可以叫我小<span onclick="aowu()">X</span
         >，这是我的地盘，我会为你做一些引路，让你能够探索我的家。
@@ -119,6 +119,7 @@
       //     });
       //   });
       // });
+      var newWindow = window.open("", "_self");
       var angry = 0;
       function aowu() {
         if (angry == 0) {
@@ -127,7 +128,7 @@
           alert("好痛！你再拍我我就要生气了");
         } else {
           alert("你别来我家了，哼！");
-          window.close();
+          newWindow.close();
         }
         angry++;
       }

@@ -1,191 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Love</title>
-    <style>
-      /* Example: Add a background color to header */
-       body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-      .triangle {
-        width: 80px;
-        height: 130px;
-        background-color: aquamarine;
-        box-shadow: 10px 5px 10px gray;
-        display: flex;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love</title>
+  <style>
+    /* Example: Add a background color to header */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .triangle {
+      width: 80px;
+      height: 130px;
+      background-color: aquamarine;
+      box-shadow: 10px 5px 10px gray;
+      display: flex;
+    }
+
+    .triangle1 {
+      width: 200px;
+      height: 135px;
+      background-color: aquamarine;
+      box-shadow: 10px 5px 10px gray;
+      display: flex;
+    }
+
+    header {
+      color: pink;
+      background-color: white;
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: -10px;
+    }
+
+    .sheart {
+      width: 24px;
+      height: 22px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .sheart::before,
+    .sheart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 12px;
+      height: 20px;
+      background: red;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .sheart::before {
+      left: 12px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .sheart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #ff6b6b;
+      transform: rotate(45deg);
+      opacity: 0;
+      filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.7));
+    }
+
+    .heart:before,
+    .heart:after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart:after {
+      top: 0;
+      left: -15px;
+    }
+
+    @keyframes heartAnimation {
+      0% {
+        transform: rotate(45deg) scale(0);
+        opacity: 0.8;
       }
-      .triangle1 {
-        width: 200px;
-        height: 135px;
-        background-color: aquamarine;
-        box-shadow: 10px 5px 10px gray;
-        display: flex;
+
+      50% {
+        opacity: 1;
       }
-      header {
-        color: pink;
-        background-color: white;
-        text-align: center;
-        font-size: 2em;
-        margin-bottom: -10px;
+
+      100% {
+        transform: rotate(45deg) scale(20);
+        opacity: 0;
       }
-      .sheart {
-        width: 24px;
-        height: 22px;
-        position: relative;
-        display: inline-block;
-      }
-      .sheart::before,
-      .sheart::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 12px;
-        height: 20px;
-        background: red;
-        border-radius: 12px 12px 0 0;
-      }
-      .sheart::before {
-        left: 12px;
-        transform: rotate(-45deg);
-        transform-origin: 0 100%;
-      }
-      .sheart::after {
-        left: 0;
-        transform: rotate(45deg);
-        transform-origin: 100% 100%;
-      }
-      .btn {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
-        }
-        
-        .btn:active {
-            transform: translateY(1px);
-        }
-        
-        .hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .heart {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #ff6b6b;
-            transform: rotate(45deg);
-            opacity: 0;
-            filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.7));
-        }
-        
-        .heart:before,
-        .heart:after {
-            content: '';
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: inherit;
-            border-radius: 50%;
-        }
-        
-        .heart:before {
-            top: -15px;
-            left: 0;
-        }
-        
-        .heart:after {
-            top: 0;
-            left: -15px;
-        }
-        
-        @keyframes heartAnimation {
-            0% {
-                transform: rotate(45deg) scale(0);
-                opacity: 0.8;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: rotate(45deg) scale(20);
-                opacity: 0;
-            }
-        }
-        
-       
-    </style>
-  </head>
-  <body>
-    <div style="text-align: center">
-      <header>Love in ours</header>
-      <div
-        style="
+    }
+  </style>
+</head>
+
+<body>
+
+  <div>
+    <header>Love in ours</header>
+  </div>
+  <div style="width: 100%; text-align: right;">
+    <audio controls
+      src="https://github.com/se338/myweb/raw/main/%E7%88%B1%E6%83%85%E8%AE%AF%E6%81%AF%20-%20%E9%83%AD%E9%9D%99.mp3"></audio>
+  </div>
+  <div style="
           display: flex;
           justify-content: center;
           gap: 16px;
           margin-top: 8px;
-        "
-      >
-        <div class="sheart"></div>
-        <div class="sheart"></div>
-        <div class="sheart"></div>
-      </div>
-    </div>
+        ">
+    <div class="sheart"></div>
+    <div class="sheart"></div>
+    <div class="sheart"></div>
+  </div>
+  </div>
 
-    <div
-      style="
+  <div style="
         display: flex;
         justify-content: center;
         gap: 200px;
         margin-top: 8px;
         background-color: pink;
-      "
-    >
-      <div
-        class="triangle"
-        style="
+      ">
+    <div class="triangle" style="
           position: relative;
           width: 90px;
           height: 160px;
           background-color: aquamarine;
           box-shadow: 10px 5px 10px gray;
           overflow: hidden;
-        "
-      >
-        <img
-          src="https://github.com/se338/myweb/raw/main/birthday.jpg"
-          alt="示例图片"
-          style="
+        ">
+      <img src="https://github.com/se338/myweb/raw/main/birthday.jpg" alt="示例图片" style="
             position: absolute;
             top: 0;
             left: 0;
@@ -194,42 +200,34 @@
             object-fit: cover;
             border-radius: 0;
             margin: 0;
-          "
-        />
-      </div>
-      <div class="triangle1">
-        <img
-          src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145805.jpg"
-          alt="示例图片"
-          style="
+          " />
+    </div>
+    <div class="triangle1">
+      <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145805.jpg"
+        alt="示例图片" style="
             max-width: 100%;
             max-height: 100%;
             border-radius: 0%;
             margin-top: 0;
             margin-bottom: 0;
-          "
-        />
-      </div>
-      <div class="triangle"style="overflow: hidden;
+          " />
+    </div>
+    <div class="triangle" style="overflow: hidden;
       width: 70px;
       height: 160px;">
-        <img
-          src="https://github.com/se338/myweb/raw/main/hands.jpg"
-    alt="牵手";
-    style="max-width: 100%;
+      <img src="https://github.com/se338/myweb/raw/main/hands.jpg" alt="牵手" ; style="max-width: 100%;
     max-height: 100%;
-    margin-bottom: 0%;"/> 
-        </div>
-        <div class="triangle"style="overflow: hidden;
+    margin-bottom: 0%;" />
+    </div>
+    <div class="triangle" style="overflow: hidden;
       width: 120px;
       height: 160px;">
-        <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902114226.jpg"
-      max-width="100%"; 
-        />
-        </div>
+      <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902114226.jpg"
+        max-width="100%" ; />
     </div>
-    <div style="background-color: green; margin-top: 30px; justify-content: center; display: flex;gap: 300px;">   
-<div class="triangle" style="
+  </div>
+  <div style="background-color: green; margin-top: 30px; justify-content: center; display: flex;gap: 300px;">
+    <div class="triangle" style="
           position: relative;
           width: 90px;
           height: 160px;
@@ -237,11 +235,10 @@
           box-shadow: 10px 5px 10px gray;
           overflow: hidden;
         ">
-  <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145837.jpg"
-max-width="100%"; 
-  />
-</div>
-<div class="triangle1"style="
+      <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145837.jpg"
+        max-width="100%" ; />
+    </div>
+    <div class="triangle1" style="
           position: relative;
           width: 120px;
           height: 160px;
@@ -249,79 +246,80 @@ max-width="100%";
           box-shadow: 10px 5px 10px gray;
           overflow: hidden;
         ">
-  <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145759.jpg" alt="图片"/>
-</div>
-</div>
-<div style="text-align: center;">
-  <p>
+      <img src="https://github.com/se338/myweb/raw/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20250902145759.jpg"
+        alt="图片" />
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <p>
     <h2>生日快乐!</h2>
     <i>亲爱的菲菲祝你生日快乐，有点遗憾你生日我不能在你身边，但是也是因为这样我才想到写个网页来纪念你的生日。</i>
-    <br/>
-  </p>
-  <button class ="btn" id ="heartBtn">
-点击看惊喜
-  </button>
-</div>
-<div class="hearts-container" id="heartsContainer"></div>
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const heartBtn = document.getElementById('heartBtn');
-            const heartsContainer = document.getElementById('heartsContainer');
-            
-            // 爱心颜色数组
-            const heartColors = [
-                '#ff6b6b', '#ff8e8e', '#ff5252', 
-                '#ff7676', '#ff3838', '#ff9f9f'
-            ];
-            
-            heartBtn.addEventListener('click', function() {
-                createHearts();
-            });
-            
-            function createHearts() {
-                // 清空之前的爱心
-                heartsContainer.innerHTML = '';
-                
-                // 创建多个爱心
-                for (let i = 0; i < 5; i++) {
-                    setTimeout(() => {
-                        createHeart();
-                    }, i * 200);
-                }
-            }
-            
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                
-                // 随机选择颜色
-                const randomColor = heartColors[Math.floor(Math.random() * heartColors.length)];
-                heart.style.background = randomColor;
-                
-                // 设置初始位置为屏幕中心
-                heart.style.left = '50%';
-                heart.style.top = '50%';
-                
-                // 添加到容器
-                heartsContainer.appendChild(heart);
-                
-                // 设置动画
-                heart.style.animation = `heartAnimation 3s ease-out forwards`;
-                
-                // 动画结束后移除元素
-                setTimeout(() => {
-                    heart.remove();
-                }, 3000);
-            }
-            
-            // 添加键盘事件支持
-            document.addEventListener('keydown', function(e) {
-                if (e.code === 'Space' || e.key === 'Enter') {
-                    createHearts();
-                }
-            });
-        });
-    </script>
-  </body>
-</html>
+    <br />
+    </p>
+    <button class="btn" id="heartBtn">
+      点击看惊喜
+    </button>
+  </div>
+  <div class="hearts-container" id="heartsContainer"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const heartBtn = document.getElementById('heartBtn');
+      const heartsContainer = document.getElementById('heartsContainer');
 
+      // 爱心颜色数组
+      const heartColors = [
+        '#ff6b6b', '#ff8e8e', '#ff5252',
+        '#ff7676', '#ff3838', '#ff9f9f'
+      ];
+
+      heartBtn.addEventListener('click', function () {
+        createHearts();
+      });
+
+      function createHearts() {
+        // 清空之前的爱心
+        heartsContainer.innerHTML = '';
+
+        // 创建多个爱心
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            createHeart();
+          }, i * 200);
+        }
+      }
+
+      function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+
+        // 随机选择颜色
+        const randomColor = heartColors[Math.floor(Math.random() * heartColors.length)];
+        heart.style.background = randomColor;
+
+        // 设置初始位置为屏幕中心
+        heart.style.left = '50%';
+        heart.style.top = '50%';
+
+        // 添加到容器
+        heartsContainer.appendChild(heart);
+
+        // 设置动画
+        heart.style.animation = `heartAnimation 3s ease-out forwards`;
+
+        // 动画结束后移除元素
+        setTimeout(() => {
+          heart.remove();
+        }, 3000);
+      }
+
+      // 添加键盘事件支持
+      document.addEventListener('keydown', function (e) {
+        if (e.code === 'Space' || e.key === 'Enter') {
+          createHearts();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
